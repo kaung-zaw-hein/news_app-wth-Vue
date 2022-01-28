@@ -1,5 +1,8 @@
 <template>
-  <div class="band animate__animated animate__fadeInUp">
+
+  <div class="band animate__animated animate__fadeInUp"
+  v-if="headers.length > 0">
+  <h1 class="title">Top Headlines in US</h1>
     <div 
     v-for="(header, index) in headers" :key="header.title" class="item"
     :class="{item1: index===0 }">
@@ -13,13 +16,17 @@
         </article>
         </a>
     </div>
-</div>
+  </div>
+    <Spinner v-else></Spinner>
+ 
 </template>
 
 <script>
+import Spinner from './Spinner'
 import { ref } from "vue";
 import { useStore } from 'vuex'
 export default {
+  components: { Spinner },
  setup(){
      const store = useStore();
      let apivalue =` https://newsapi.org/v2/top-headlines?country=us&apiKey=${store.state.apikey} `;
@@ -44,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
     .band {
   width: 90%;
   max-width: 1240px;
@@ -64,6 +71,11 @@ export default {
   .band {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+.title {
+  color:rgb(73, 72, 72);
+  width:400px;
+  font-size:2em;
 }
 .card {
   text-decoration: none;
