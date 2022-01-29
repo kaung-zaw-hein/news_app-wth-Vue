@@ -1,16 +1,16 @@
 <template>
   <div id="nav">
     <div class="logo_container">
-        <img src="../../public/Brnyr-logos_transparent.png" alt="">
+        <router-link to="/"><img src="../../public/Brnyr-logos_transparent.png" alt=""></router-link> 
     </div>
     <div class="router-link-container">
          <router-link to="/">Home</router-link> 
          <router-link to="/about">About</router-link>
     </div>
     <div class="box">
-        <form name="search">
-            <input type="text" class="input" name="txt" 
-            onmouseout="document.search.txt.value = ''">
+        <form name="search" >
+            <input type="text" class="input" name="txt" v-model="search"
+            @keydown.enter="Searchkey">
         </form>
             <i class="fas fa-search"></i>
     </div>
@@ -18,8 +18,18 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { useRouter } from 'vue-router'
 export default {
-    
+    setup(){
+        let search = ref("");
+        let router = useRouter();
+        let Searchkey =  () => {
+            router.push({ name: 'Search', params: { searchkey: search.value } })
+            search.value = "";
+        }
+        return{ search, Searchkey};
+    }
 }
 </script>
 
@@ -71,6 +81,14 @@ export default {
         width: 350px;
         background: #272133;
         border-radius: 10px;
+    }
+    input:focus{
+        width: 350px;
+        background: #272133;
+        border-radius: 10px;
+    }
+    .box:focus i{
+        opacity: 0;
     }
     i{
         position: absolute;

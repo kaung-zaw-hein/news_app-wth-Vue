@@ -1,32 +1,43 @@
 <template>
-
-  <div class="band animate__animated animate__fadeInUp"
-  v-if="headers.length > 0">
-  <h1 class="title">Top Headlines in US</h1>
-    <div 
-    v-for="(header, index) in headers" :key="header.title" class="item"
-    :class="{item1: index===0 }">
-        <a :href="header.url" class="card">
-        <div class="thumb" :style="{backgroundImage:`url(${header.urlToImage})`}"></div>
-        <article>
-            <h1>{{header.title}}</h1>
-            <p>{{header.description}}</p>
-            <span>{{header.author}}</span>
-            <span>{{header.publishedAt}}</span>
-        </article>
-        </a>
+  <div  v-if="headers.length > 0">
+    <div class="band animate__animated animate__fadeInUp">
+    <h1 class="title">Top Headlines in US</h1>
+      <div 
+      v-for="(header, index) in headers" :key="header.title" class="item"
+      :class="{item1: index===0 }">
+          <a :href="header.url" class="card">
+          <div class="thumb" :style="{backgroundImage:`url(${header.urlToImage})`}"></div>
+          <article>
+              <h1>{{header.title}}</h1>
+              <p>{{header.description}}</p>
+              <span>{{header.author}}</span>
+              <span>{{header.publishedAt}}</span>
+          </article>
+          </a>
+      </div>
+    </div>
+    <div class="catergory-container">
+      <CategoryNews title="business"></CategoryNews>
+      <CategoryNews title="entertainment"></CategoryNews>
+      <CategoryNews title="technology"></CategoryNews>
+      <CategoryNews title="health"></CategoryNews>
+      <CategoryNews title="science"></CategoryNews>
+      <CategoryNews title="sports"></CategoryNews>
     </div>
   </div>
+  
     <Spinner v-else></Spinner>
  
 </template>
 
 <script>
+import CategoryNews from './Category-news'
 import Spinner from './Spinner'
 import { ref } from "vue";
 import { useStore } from 'vuex'
 export default {
-  components: { Spinner },
+  components: {
+    CategoryNews, Spinner },
  setup(){
      const store = useStore();
      let apivalue =` https://newsapi.org/v2/top-headlines?country=us&apiKey=${store.state.apikey} `;
@@ -128,5 +139,12 @@ font-size: 14px;
     font-size: 24px;
   }
 }
-
+.catergory-container{
+  display: flex;
+  margin: 0 auto;
+  width:1450px;
+  justify-content: space-around;
+  
+  flex-wrap: wrap;
+}
 </style>

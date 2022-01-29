@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    apikey:"b79be83cab9a4d6f8aafa29df7f9633f",
+    apikey:"766e4eea5f284b219281ee2b91f7d9de",
   },
   mutations: {
   },

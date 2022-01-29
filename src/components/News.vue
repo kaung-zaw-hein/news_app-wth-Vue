@@ -1,20 +1,22 @@
 <template>
-  <div class="band animate__animated animate__fadeInUp"
-  v-if="headers.length > 0">
-  <h1>NEWS</h1>
-    <div 
-    v-for="(header, index) in headers" :key="header.title" class="item"
-    :class="{item1: index % 3 === 0 || index === 0}">
-        <a :href="header.url" class="card">
-        <div class="thumb" :style="{backgroundImage:`url(${header.urlToImage})`}"></div>
-        <article>
-            <h1>{{header.title}}</h1>
-            <p>{{header.description}}</p>
-            <span>{{header.author}}</span>
-            <span>{{header.publishedAt}}</span>
-        </article>
-        </a>
-    </div>
+  <div>
+        <div class="band animate__animated animate__fadeInUp"
+        v-if="headers.length > 0">
+        <h1>NEWS</h1>
+            <div 
+            v-for="(header, index) in headers" :key="header.title" class="item"
+            :class="{item1: index === 0}">
+                <a :href="header.url" class="card">
+                <div class="thumb" :style="{backgroundImage:`url(${header.urlToImage})`}"></div>
+                <article>
+                    <h1>{{header.title}}</h1>
+                    <p>{{header.description}}</p>
+                    <span>{{header.author}}</span>
+                    <span>{{header.publishedAt}}</span>
+                </article>
+                </a>
+            </div>
+        </div>
   </div>
 </template>
 
@@ -24,16 +26,16 @@ import { useStore } from 'vuex'
 export default {
     setup(){
      const store = useStore();
-     let apivalue =` https://newsapi.org/v2/everything?q=e&sortBy=popularity&apiKey=${store.state.apikey} `;
+     let apivalue =` https://newsapi.org/v2/everything?q=n&sortBy=popularity&apiKey=${store.state.apikey} `;
      let headers = ref([]);
      let result = async() => {
         fetch(apivalue)
             .then((response) => {
             return response.json();
         }).then((data) =>{
-            data = data.articles; 
+            data = data.articles;   
+            data = data.slice(0, 19);   
             headers.value = data;
-           
         }).catch((err) =>{
             console.log(err.message);
         })
