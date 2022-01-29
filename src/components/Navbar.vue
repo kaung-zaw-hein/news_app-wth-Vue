@@ -6,6 +6,12 @@
     <div class="router-link-container">
          <router-link to="/">Home</router-link> 
          <router-link to="/about">About</router-link>
+         <router-link :to="{name:'Category',params:{catego:'business'}}">Business</router-link>
+         <router-link :to="{name:'Category',params:{catego:'entertainment'}}">Entertainment</router-link>
+         <router-link :to="{name:'Category',params:{catego:'technology'}}">Technology</router-link>
+         <router-link :to="{name:'Category',params:{catego:'health'}}">Health</router-link>
+         <router-link :to="{name:'Category',params:{catego:'science'}}">Science</router-link>
+         <router-link :to="{name:'Category',params:{catego:'sports'}}">Sports</router-link>
     </div>
     <div class="box">
         <form name="search" >
@@ -53,6 +59,7 @@ export default {
     }
     .router-link-container a{
         margin-right:20px;
+        transition:0.5s;
     }
     .router-link-container a.router-link-exact-active {
         color: #FFFA65;

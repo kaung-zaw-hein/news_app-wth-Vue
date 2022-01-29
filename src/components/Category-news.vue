@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <a href="#" class="title">{{title}}</a>
+      <router-link :to="{name:'Category',params:{catego:title}}" class="title">{{title}}</router-link>
       <a :href="header.url" v-for="(header,index) in headers" :key="header">
           <div class="item1" v-show="index === 0"
            :style="{backgroundImage:`url(${header.urlToImage})`}"></div>

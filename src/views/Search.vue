@@ -1,5 +1,5 @@
 <template>
-    <div v-if="searchKey.length > 0">
+    <div v-if="searchKey.length > 1">
         <h1 class="searchKey"> Results of {{searchkey}}</h1>
         <div class="blog-container"
         v-for="key in searchKey" :key="key.title">
