@@ -1,5 +1,5 @@
 <template>
-  <Splide :options="{ rewind: true ,perPage: 5, perMove: 3,}">
+  <Splide :options="{ rewind: true ,perPage: 5, perMove: 3,  arrows: false, pagination: false }">
     <SplideSlide v-for="source in sources" :key="source.id">
      <a :href="source.url">
           <img  
@@ -28,6 +28,8 @@ export default defineComponent( {
     let options = {
       rewind: true,
       perPage: 6,
+      arrows: false,
+      pagination: false, 
     };
     let getImgUrl = (pic) => {
          var images = require.context('../assets/images/', false, /\.png$/)
@@ -53,7 +55,7 @@ export default defineComponent( {
 <style scoped>
 .splide__slide{
     width:60px!important;
-    margin:20px 10px;
+    margin:10px;
 }
 img{
     width: 60px;

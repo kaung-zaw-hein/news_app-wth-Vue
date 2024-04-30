@@ -17,7 +17,7 @@ import { useStore } from 'vuex'
 export default {
   props:["title"],
     setup(props){
-     const store = useStore();
+        const store = useStore();
      let apivalue =` https://newsapi.org/v2/top-headlines?category=${props.title}&apiKey=${store.state.apikey} `;
      let headers = ref([]);
      let result = async() => {
@@ -44,7 +44,7 @@ export default {
     .container{
         display:flex;
         align-items:left;
-        width:450px;
+        width:30%;
         flex-direction:column;
         flex-wrap:wrap;
     }

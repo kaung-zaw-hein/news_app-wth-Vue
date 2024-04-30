@@ -1,7 +1,6 @@
 # news_app
 
-![image](https://user-images.githubusercontent.com/62888962/152989414-a895dd74-5061-46db-a9bf-4248bcde1d30.png)
-
+![image](https://github.com/Kv0nzee/car_rental/assets/62888962/13c03364-a553-496e-8a11-c686b34cd0ad)
 
 ## Project setup
 ```

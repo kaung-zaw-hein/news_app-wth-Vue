@@ -65,49 +65,28 @@ export default {
         color: #FFFA65;
     }
     .box{
-        position: absolute;
-        top: 50%;
-        left: 80%;
-        transform: translate(-50%,-50%);
+        top: 0;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+        align-items: center;
     }
     .input {
         padding: 10px;
-        width: 80px;
-        height: 80px;
+        padding-left: 20px;
+        width: 200px;
         background: none;
-        border: 4px solid #fafafa;
-        border-radius: 50px;
+        border: none;
+        border-bottom: 1px solid #fafafa;
         box-sizing: border-box;
         font-family: Comic Sans MS;
-        font-size: 26px;
         color: #ffffff;
         outline: none;
         transition: .5s;
     }
-    .box:hover input{
-        width: 350px;
-        background: #272133;
-        border-radius: 10px;
-    }
-    input:focus{
-        width: 350px;
-        background: #272133;
-        border-radius: 10px;
-    }
-    .box:focus i{
-        opacity: 0;
-    }
     i{
-        position: absolute;
-        top: 50%;
-        right: 15px;
-        transform: translate(-50%,-50%);
-        font-size: 26px;
-        color: #000000;
+        color: #ffffff;
         transition: .2s;
-    }
-    .box:hover i{
-        opacity: 0;
-        z-index: -1;
+        margin-right: -15px;
     }
 </style>

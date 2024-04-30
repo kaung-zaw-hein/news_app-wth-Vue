@@ -64,10 +64,10 @@ export default {
 
 <style >
     .band {
-  width: 90%;
+      width: 90%;
   max-width: 1240px;
   margin: 0 auto;
-  margin-top:20px;
+      margin-top: -20px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -142,7 +142,7 @@ font-size: 14px;
 .catergory-container{
   display: flex;
   margin: 0 auto;
-  width:1450px;
+  width:100%;
   justify-content: space-around;
   
   flex-wrap: wrap;

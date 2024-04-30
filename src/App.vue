@@ -30,6 +30,8 @@ li{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  max-width: 100%;
+  overflow: hidden;
 }
 #nprogress .bar {
   background: #FFBB00 !important;
